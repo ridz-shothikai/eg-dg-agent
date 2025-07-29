@@ -1,4 +1,4 @@
-from google.adk.agents import LoopAgent, SequentialAgent
+from google.adk.agents import LoopAgent, SequentialAgent, ParallelAgent
 from .subagent.component_geometry_agent.agent import component_geometry_agent
 from .subagent.reinforcement_details_agent.agent import reinforcement_details_agent
 from .subagent.material_specs_agent.agent import material_specs_agent
@@ -141,18 +141,31 @@ boq_validation_agent = Agent(
 )
 
 # Create the Sequential Pipeline
-category_extraction_agent = SequentialAgent(
-    name="CategoryExtractionAgent",
-    sub_agents=[
+# category_extraction_agent = SequentialAgent(
+#     name="CategoryExtractionAgent",
+#     sub_agents=[
+#         component_geometry_agent,
+#         pile_details_agent,
+#         reinforcement_details_agent,
+#         material_specs_agent,
+#         seismic_arrestors_agent,
+#         structural_notes_agent,
+#         compliance_parameters_agent,
+#     ]
+# )
+category_extraction_agent = ParallelAgent(
+     name="ParallelWebResearchAgent",
+     sub_agents=[
         component_geometry_agent,
         pile_details_agent,
         reinforcement_details_agent,
         material_specs_agent,
         seismic_arrestors_agent,
         structural_notes_agent,
-        compliance_parameters_agent,
-    ]
-)
+        compliance_parameters_agent
+        ],
+     description="Runs multiple research agents in parallel to gather information."
+ )
 
 
 
