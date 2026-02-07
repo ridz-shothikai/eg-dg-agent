@@ -17,7 +17,7 @@ COPY . .
 EXPOSE 8010
 
 # Define environment variable
-# ENV NAME World
+ENV PYTHONUNBUFFERED=1
 
 # Run the application using gunicorn with uvicorn workers
 CMD ["gunicorn", "main:app", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8060"]

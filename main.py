@@ -170,7 +170,10 @@ vertexai.init(project=project_id, location=location)
 app_instance = reasoning_engines.AdkApp(agent=root_agent, enable_tracing=True)
 
 # 3. Create FastAPI app
-app = FastAPI(title="ADK + FastAPI Server")
+app = FastAPI(
+    title="ADK + FastAPI Server",
+    root_path=os.getenv("ROOT_PATH", "")
+)
 
 
 # -- Data models -------------------------------------------------------------
