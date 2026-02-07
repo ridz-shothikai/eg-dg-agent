@@ -3,3 +3,9 @@ google-generativeai==0.8.5
 python-dotenv==1.1.0
 Deprecated
 pymongo==4.13.2
+fastapi
+uvicorn
+gunicorn
+tenacity
+google-cloud-aiplatform
+python-multipart
