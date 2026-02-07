@@ -20,4 +20,4 @@ EXPOSE 8010
 # ENV NAME World
 
 # Run the application using gunicorn with uvicorn workers
-CMD ["gunicorn", "main:app", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8010"]
+CMD ["gunicorn", "main:app", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8060"]
