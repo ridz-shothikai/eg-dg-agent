@@ -167,7 +167,7 @@ def process_file_in_background(user_id: str, session_id: str, file_path: str):
 
 # 2. Initialize Vertex AI & ADK app
 vertexai.init(project=project_id, location=location)
-app_instance = reasoning_engines.AdkApp(agent=root_agent, enable_tracing=True)
+app_instance = reasoning_engines.AdkApp(agent=root_agent, enable_tracing=False)
 
 # 3. Create FastAPI app
 app = FastAPI(
